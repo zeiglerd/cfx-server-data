@@ -4,5 +4,12 @@ NLog.config
 /cache/
 /resources/\[local\]/
 
+# EssentialMode
+**/essentialmode.db
+
 # lib-lua*
 **/\[ll\]/
+
+# vMenu
+**/vmenu_bans.db
+**/vMenu/uuid
