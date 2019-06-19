@@ -4,8 +4,15 @@ NLog.config
 /cache/
 /resources/\[local\]/
 
+# Composer
+**/vendor/
+
 # EssentialMode
 **/essentialmode.db
+
+# EUP
+**/*.ytd
+**/*.ydd
 
 # lib-lua*
 **/\[ll\]/
