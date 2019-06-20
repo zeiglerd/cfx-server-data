@@ -12,14 +12,11 @@ resources/*
 !resources/runcode
 
 # Composer
-**/vendor/
+vendor/*
 
 # EssentialMode
-**/essentialmode.db
-
-# lib-lua*
-**/\[ll\]/
+essentialmode.db
 
 # vMenu
-**/vmenu_bans.db
-**/vMenu/uuid
+vmenu_bans.db
+vMenu/uuid
