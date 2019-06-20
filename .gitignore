@@ -1,12 +1,14 @@
+# CitizenFX Server
 CitizenMP.Server.exe
 CitizenMP.Server.exe.config
 NLog.config
 /cache/
 
+# CitizenFX Resources
 resources/
 !resources/\[gamemodes\]/
 !resources/\[gameplay\]/
-!resources/\[managers\]/mapmanager
+!resources/\[managers\]/mapmanager/
 !resources/\[system\]/
 !resources/map-default/
 !resources/runcode/
