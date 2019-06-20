@@ -2,7 +2,14 @@ CitizenMP.Server.exe
 CitizenMP.Server.exe.config
 NLog.config
 /cache/
-/resources/\[local\]/
+
+resources/*
+!resources/\[gamemodes\]
+!resources/\[gameplay\]
+!resources/\[managers\]/mapmanager
+!resources/\[system\]
+!resources/map-default
+!resources/runcode
 
 # Composer
 **/vendor/
