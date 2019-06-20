@@ -10,10 +10,6 @@ NLog.config
 # EssentialMode
 **/essentialmode.db
 
-# EUP
-**/*.ytd
-**/*.ydd
-
 # lib-lua*
 **/\[ll\]/
 
