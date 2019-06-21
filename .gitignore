@@ -5,27 +5,20 @@ NLog.config
 /cache/
 
 # CitizenFX Resources
-/resources/*
-/resources/*/
-!/resources/\[gamemodes\]/
-!/resources/\[gameplay\]/
-!/resources/\[managers\]/
-!/resources/\[system\]/
-!/resources/\[test\]/
-!/resources/fivem/
-!/resources/fivem-awesome1501/
-!/resources/fivem-map-hipster/
-!/resources/fivem-map-skater/
-!/resources/runcode/
-!/resources/test.txt
+resources/
+!resources/\[gamemodes\]/
+!resources/\[gameplay\]/
+!resources/\[managers\]/mapmanager/
+!resources/\[system\]/
+!resources/map-default/
+!resources/runcode/
 
 # Composer
-/vendor/*
-/vendor/*/
+vendor/
 
 # EssentialMode
-/essentialmode.db
+essentialmode.db
 
 # vMenu
-/vmenu_bans.db
-/vMenu/uuid
+vmenu_bans.db
+vMenu/uuid
