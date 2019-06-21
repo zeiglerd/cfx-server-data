@@ -56,11 +56,11 @@ AddEventHandler('getMapDirectives', function(add)
         -- delete callback follows on the next line
     end, function(state, arg)
         -- loop through all spawn points to find one with our state
-        for i, sp in ipairs(spawnPoints) do
+        for i, sp in pairs(spawnPoints) do
             -- if it matches...
             if sp.x == state.xyz[1] and sp.y == state.xyz[2] and sp.z == state.xyz[3] and sp.model == state.model then
                 -- remove it.
-                table.remove(spawnPoints, i)
+                spawnPoints[i] = nil
                 return
             end
         end
@@ -124,16 +124,18 @@ function addSpawnPoint(spawn)
     spawnNum = spawnNum + 1
 
     -- all OK, add the spawn entry to the list
-    table.insert(spawnPoints, spawn)
+    spawnPoints[spawn.idx] = spawn
 
     return spawn.idx
 end
 
 -- removes a spawn point
-function removeSpawnPoint(spawn)
-    for i = 1, #spawnPoints do
-        if spawnPoints[i].idx == spawn then
-            table.remove(spawnPoints, i)
+function removeSpawnPoint(spawnOrSpawnIdx)
+    local spawnIdx = 'table' == type(spawnOrSpawnIdx) and spawnOrSpawnIdx.idx or spawnOrSpawnIdx
+
+    for i, spawn in pairs(spawnPoints) do
+        if spawn.idx == spawnIdx then
+            spawnPoints[i] = nil
             return
         end
     end
@@ -200,7 +202,7 @@ end
 local spawnLock = false
 
 -- spawns the current player at a certain spawn point index (or a random one, for that matter)
-function spawnPlayer(spawnIdx, cb)
+function spawnPlayer(spawnOrSpawnIdx, cb)
     if spawnLock then
         return
     end
@@ -209,18 +211,13 @@ function spawnPlayer(spawnIdx, cb)
 
     Citizen.CreateThread(function()
         -- if the spawn isn't set, select a random one
-        if not spawnIdx then
-            spawnIdx = GetRandomIntInRange(1, #spawnPoints + 1)
+        if not spawnOrSpawnIdx then
+            -- @todo should we keep the ` + 1` here?
+            spawnOrSpawnIdx = GetRandomIntInRange(1, countSpawnPoints() + 1)
         end
 
         -- get the spawn from the array
-        local spawn
-
-        if type(spawnIdx) == 'table' then
-            spawn = spawnIdx
-        else
-            spawn = spawnPoints[spawnIdx]
-        end
+        local spawn = 'table' == type(spawnOrSpawnIdx) and spawnOrSpawnIdx or spawnPoints[spawnOrSpawnIdx]
 
         if not spawn.skipFade then
             DoScreenFadeOut(500)
@@ -317,6 +314,19 @@ function spawnPlayer(spawnIdx, cb)
 
         spawnLock = false
     end)
+
+    return spawnOrSpawnIdx
+end
+
+-- since `#spawnPoints` is unreliable, we need to count with a loop
+function countSpawnPoints()
+  local count = 0
+
+  for i, spawn in pairs(spawnPoints) do
+    count = 1 + count
+  end
+
+  return count
 end
 
 -- automatic spawning monitor thread, too
