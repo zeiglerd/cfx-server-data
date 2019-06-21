@@ -12,9 +12,6 @@ NLog.config
 !/resources/\[system\]
 !/resources/\[test\]
 !/resources/fivem
-!/resources/fivem-awesome1501
-!/resources/fivem-map-hipster
-!/resources/fivem-map-skater
 !/resources/runcode
 
 # Composer
