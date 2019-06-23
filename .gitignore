@@ -11,8 +11,8 @@ NLog.config
 !/resources/\[managers\]
 !/resources/\[system\]
 !/resources/\[test\]
-!/resources/gametype
-!/resources/map
+!/resources/default_gametype
+!/resources/default_map
 !/resources/runcode
 
 # Composer
