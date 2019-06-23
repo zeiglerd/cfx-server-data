@@ -11,7 +11,7 @@ NLog.config
 !/resources/\[managers\]
 !/resources/\[system\]
 !/resources/\[test\]
-!/resources/fivem
+!/resources/gametype
 !/resources/map
 !/resources/runcode
 
