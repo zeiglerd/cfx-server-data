@@ -1,5 +1,5 @@
 resource_type 'gametype' {
-  name = 'Freeroam',
+  name = 'Prototype',
 }
 
 -- map 'gametype.lua'
