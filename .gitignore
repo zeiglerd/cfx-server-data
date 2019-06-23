@@ -12,6 +12,7 @@ NLog.config
 !/resources/\[system\]
 !/resources/\[test\]
 !/resources/fivem
+!/resources/map
 !/resources/runcode
 
 # Composer
