@@ -1,4 +1,4 @@
-AddEventHandler('onClientMapStart', function()
-  exports.spawnmanager:setAutoSpawn(true)
-  exports.spawnmanager:forceRespawn()
-end)
+-- AddEventHandler('onClientMapStart', function()
+--   exports.spawnmanager:setAutoSpawn(true)
+--   exports.spawnmanager:forceRespawn()
+-- end)
